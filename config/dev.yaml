@@ -1,0 +1,23 @@
+server:
+  # Server Bind address
+  address: 0.0.0.0:8000
+  apiPrefix: "/api"
+
+cors:
+  enabled: true
+  accessControlAllowOrigin: "*"
+  acccessControlAllowCredentials: "true"
+  accessControlAllowHeaders: "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin"
+  accessControlAllowMethods: "POST,HEAD,PATCH,OPTIONS,GET,PUT"
+
+inCluster: true
+spawnerConfigPath: ./config/spawner_ui_config.yaml
+
+ingress:
+  create: true
+  domain: .example.com
+  tls: true
+  annotations:
+    "cert-manager.io/cluster-issuer": "vault-issuer"
+    "kubernetes.io/ingress.class": "nginx"
+    "nginx.ingress.kubernetes.io/proxy-body-size": "0"

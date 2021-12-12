@@ -1,0 +1,1 @@
+kustomize build ./deployment/notebook-controller/upstream/overlays/standalone | kubectl apply -f -

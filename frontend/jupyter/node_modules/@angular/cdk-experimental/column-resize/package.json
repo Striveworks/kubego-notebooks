@@ -1,0 +1,9 @@
+{
+  "name": "@angular/cdk-experimental/column-resize",
+  "main": "../bundles/cdk-experimental-column-resize.umd.js",
+  "fesm2015": "../fesm2015/column-resize.js",
+  "esm2015": "../esm2015/column-resize/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm2015/column-resize.js",
+  "es2015": "../fesm2015/column-resize.js"
+}

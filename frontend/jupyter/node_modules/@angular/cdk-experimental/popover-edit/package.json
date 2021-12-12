@@ -1,0 +1,9 @@
+{
+  "name": "@angular/cdk-experimental/popover-edit",
+  "main": "../bundles/cdk-experimental-popover-edit.umd.js",
+  "fesm2015": "../fesm2015/popover-edit.js",
+  "esm2015": "../esm2015/popover-edit/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm2015/popover-edit.js",
+  "es2015": "../fesm2015/popover-edit.js"
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"details-list.component.d.ts","sourceRoot":"","sources":["../../../../projects/kubeflow/src/lib/details-list/details-list.component.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,SAAS,EAAE,MAAM,SAAS,CAAC;;AAEpC,qBAKa,oBAAoB;IACtB,OAAO,EAAE,SAAS,EAAE,CAAM;IAC1B,UAAU,UAAQ;IAElB,KAAK,EAAE,MAAM,CAAC;yCAJZ,oBAAoB;2CAApB,oBAAoB;CAKhC"}

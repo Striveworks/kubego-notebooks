@@ -1,0 +1,9 @@
+{
+  "name": "@angular/cdk-experimental/listbox",
+  "main": "../bundles/cdk-experimental-listbox.umd.js",
+  "fesm2015": "../fesm2015/listbox.js",
+  "esm2015": "../esm2015/listbox/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm2015/listbox.js",
+  "es2015": "../fesm2015/listbox.js"
+}

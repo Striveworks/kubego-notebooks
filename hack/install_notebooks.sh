@@ -1,0 +1,1 @@
+helm install kubego-notebooks ./deployment/notebooks

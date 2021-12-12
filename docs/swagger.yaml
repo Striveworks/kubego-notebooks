@@ -1,0 +1,838 @@
+definitions:
+  common.AffinityConfig:
+    properties:
+      options:
+        items:
+          $ref: '#/definitions/common.AffinityOption'
+        type: array
+      readOnly:
+        type: boolean
+      value:
+        type: string
+    type: object
+  common.AffinityOption:
+    properties:
+      affinity:
+        $ref: '#/definitions/v1.Affinity'
+      configKey:
+        type: string
+      displayName:
+        type: string
+    type: object
+  common.CPU:
+    properties:
+      limitFactor:
+        type: string
+      readOnly:
+        type: boolean
+      value:
+        type: string
+    type: object
+  common.Configurations:
+    properties:
+      readOnly:
+        type: boolean
+      value:
+        items:
+          type: object
+        type: array
+    type: object
+  common.Environment:
+    properties:
+      readOnly:
+        type: boolean
+      value:
+        $ref: '#/definitions/common.EnvironmentValue'
+    type: object
+  common.EnvironmentValue:
+    type: object
+  common.Gpus:
+    properties:
+      readOnly:
+        type: boolean
+      value:
+        $ref: '#/definitions/common.GpusValue'
+    type: object
+  common.GpusValue:
+    properties:
+      num:
+        type: string
+      vendor:
+        type: string
+      vendors:
+        items:
+          $ref: '#/definitions/common.Vendor'
+        type: array
+    type: object
+  common.Image:
+    properties:
+      options:
+        items:
+          type: string
+        type: array
+      readOnly:
+        type: boolean
+      value:
+        type: string
+    type: object
+  common.ImageGroup:
+    properties:
+      options:
+        items:
+          type: string
+        type: array
+      value:
+        type: string
+    type: object
+  common.ImagePullPolicy:
+    properties:
+      readOnly:
+        type: boolean
+      value:
+        type: string
+    type: object
+  common.Option:
+    properties:
+      displayName:
+        type: string
+      groupKey:
+        type: string
+      tolerations:
+        items:
+          $ref: '#/definitions/common.Toleration'
+        type: array
+    type: object
+  common.Shm:
+    properties:
+      readOnly:
+        type: boolean
+      value:
+        type: boolean
+    type: object
+  common.SpawnerFormDefaults:
+    properties:
+      affinityConfig:
+        $ref: '#/definitions/common.AffinityConfig'
+      allowCustomImage:
+        type: boolean
+      configurations:
+        $ref: '#/definitions/common.Configurations'
+      cpu:
+        $ref: '#/definitions/common.CPU'
+      dataVolumes:
+        $ref: '#/definitions/common.Configurations'
+      environment:
+        $ref: '#/definitions/common.Environment'
+      gpus:
+        $ref: '#/definitions/common.Gpus'
+      hideRegistry:
+        type: boolean
+      hideTag:
+        type: boolean
+      image:
+        $ref: '#/definitions/common.Image'
+      imageGroupOne:
+        $ref: '#/definitions/common.ImageGroup'
+      imageGroupTwo:
+        $ref: '#/definitions/common.ImageGroup'
+      imagePullPolicy:
+        $ref: '#/definitions/common.ImagePullPolicy'
+      memory:
+        $ref: '#/definitions/common.CPU'
+      shm:
+        $ref: '#/definitions/common.Shm'
+      tolerationGroup:
+        $ref: '#/definitions/common.TolerationGroup'
+      workspaceVolume:
+        $ref: '#/definitions/common.WorkspaceVolume'
+    type: object
+  common.Toleration:
+    properties:
+      effect:
+        type: string
+      key:
+        type: string
+      operator:
+        type: string
+      value:
+        type: string
+    type: object
+  common.TolerationGroup:
+    properties:
+      options:
+        items:
+          $ref: '#/definitions/common.Option'
+        type: array
+      readOnly:
+        type: boolean
+      value:
+        type: string
+    type: object
+  common.Vendor:
+    properties:
+      limitsKey:
+        type: string
+      uiName:
+        type: string
+    type: object
+  common.WorkspaceVolume:
+    properties:
+      value:
+        $ref: '#/definitions/common.WorkspaceVolumeValue'
+    type: object
+  common.WorkspaceVolumeValue:
+    properties:
+      accessModes:
+        $ref: '#/definitions/common.ImagePullPolicy'
+      class:
+        $ref: '#/definitions/common.ImagePullPolicy'
+      mountPath:
+        $ref: '#/definitions/common.ImagePullPolicy'
+      name:
+        $ref: '#/definitions/common.ImagePullPolicy'
+      size:
+        $ref: '#/definitions/common.ImagePullPolicy'
+      type:
+        $ref: '#/definitions/common.ImagePullPolicy'
+    type: object
+  input.Datavolume:
+    properties:
+      class:
+        type: string
+      extraFields:
+        $ref: '#/definitions/input.ExtraFields'
+      mode:
+        type: string
+      name:
+        type: string
+      path:
+        type: string
+      size:
+        type: string
+      templatedName:
+        type: string
+      templatedPath:
+        type: string
+      type:
+        type: string
+    type: object
+  input.ExtraFields:
+    type: object
+  input.Gpus:
+    properties:
+      num:
+        type: string
+      vendor:
+        type: string
+      vendors:
+        items:
+          type: string
+        type: array
+    type: object
+  input.Notebook:
+    properties:
+      affinityConfig:
+        type: string
+      allowCustomImage:
+        type: boolean
+      configurations:
+        items:
+          type: object
+        type: array
+      cpu:
+        type: string
+      cpuLimit:
+        type: string
+      customImage:
+        type: string
+      customImageCheck:
+        type: boolean
+      datavols:
+        items:
+          $ref: '#/definitions/input.Datavolume'
+        type: array
+      gpus:
+        $ref: '#/definitions/input.Gpus'
+      image:
+        type: string
+      imagePullPolicy:
+        type: string
+      memory:
+        type: string
+      memoryLimit:
+        type: string
+      name:
+        type: string
+      namespace:
+        type: string
+      noWorkspace:
+        type: boolean
+      serverType:
+        type: string
+      shm:
+        type: boolean
+      tolerationGroup:
+        type: string
+      workspace:
+        $ref: '#/definitions/input.Datavolume'
+    type: object
+  input.StartStop:
+    properties:
+      stopped:
+        type: boolean
+    type: object
+  output.Config:
+    properties:
+      config:
+        $ref: '#/definitions/common.SpawnerFormDefaults'
+    type: object
+  output.DefaultStorageClass:
+    properties:
+      defaultStorageClass:
+        type: string
+    type: object
+  output.GPUVendors:
+    properties:
+      vendors:
+        items:
+          type: string
+        type: array
+    type: object
+  output.Gpus:
+    properties:
+      count:
+        type: integer
+      message:
+        type: string
+    type: object
+  output.Notebook:
+    properties:
+      age:
+        type: string
+      cpu:
+        type: string
+      gpus:
+        $ref: '#/definitions/output.Gpus'
+      image:
+        type: string
+      memory:
+        type: string
+      name:
+        type: string
+      namespace:
+        type: string
+      serverType:
+        type: string
+      shortImage:
+        type: string
+      status:
+        $ref: '#/definitions/output.Status'
+      volumes:
+        items:
+          type: string
+        type: array
+    type: object
+  output.Notebooks:
+    properties:
+      notebooks:
+        items:
+          $ref: '#/definitions/output.Notebook'
+        type: array
+    type: object
+  output.PVC:
+    properties:
+      class:
+        type: string
+      mode:
+        type: string
+      name:
+        type: string
+      namespace:
+        type: string
+      size:
+        type: string
+    type: object
+  output.PVCs:
+    properties:
+      pvcs:
+        items:
+          $ref: '#/definitions/output.PVC'
+        type: array
+    type: object
+  output.PodDefault:
+    properties:
+      desc:
+        type: string
+      label:
+        type: string
+    type: object
+  output.PodDefaults:
+    properties:
+      poddefaults:
+        items:
+          $ref: '#/definitions/output.PodDefault'
+        type: array
+    type: object
+  output.Status:
+    properties:
+      message:
+        type: string
+      phase:
+        type: string
+      state:
+        type: string
+    type: object
+  v1.Affinity:
+    properties:
+      nodeAffinity:
+        $ref: '#/definitions/v1.NodeAffinity'
+        description: |-
+          Describes node affinity scheduling rules for the pod.
+          +optional
+      podAffinity:
+        $ref: '#/definitions/v1.PodAffinity'
+        description: |-
+          Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
+          +optional
+      podAntiAffinity:
+        $ref: '#/definitions/v1.PodAntiAffinity'
+        description: |-
+          Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
+          +optional
+    type: object
+  v1.LabelSelector:
+    properties:
+      matchExpressions:
+        description: |-
+          matchExpressions is a list of label selector requirements. The requirements are ANDed.
+          +optional
+        items:
+          $ref: '#/definitions/v1.LabelSelectorRequirement'
+        type: array
+      matchLabels:
+        additionalProperties:
+          type: string
+        description: |-
+          matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels
+          map is equivalent to an element of matchExpressions, whose key field is "key", the
+          operator is "In", and the values array contains only "value". The requirements are ANDed.
+          +optional
+        type: object
+    type: object
+  v1.LabelSelectorRequirement:
+    properties:
+      key:
+        description: |-
+          key is the label key that the selector applies to.
+          +patchMergeKey=key
+          +patchStrategy=merge
+        type: string
+      operator:
+        description: |-
+          operator represents a key's relationship to a set of values.
+          Valid operators are In, NotIn, Exists and DoesNotExist.
+        type: string
+      values:
+        description: |-
+          values is an array of string values. If the operator is In or NotIn,
+          the values array must be non-empty. If the operator is Exists or DoesNotExist,
+          the values array must be empty. This array is replaced during a strategic
+          merge patch.
+          +optional
+        items:
+          type: string
+        type: array
+    type: object
+  v1.NodeAffinity:
+    properties:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        description: |-
+          The scheduler will prefer to schedule pods to nodes that satisfy
+          the affinity expressions specified by this field, but it may choose
+          a node that violates one or more of the expressions. The node that is
+          most preferred is the one with the greatest sum of weights, i.e.
+          for each node that meets all of the scheduling requirements (resource
+          request, requiredDuringScheduling affinity expressions, etc.),
+          compute a sum by iterating through the elements of this field and adding
+          "weight" to the sum if the node matches the corresponding matchExpressions; the
+          node(s) with the highest sum are the most preferred.
+          +optional
+        items:
+          $ref: '#/definitions/v1.PreferredSchedulingTerm'
+        type: array
+      requiredDuringSchedulingIgnoredDuringExecution:
+        $ref: '#/definitions/v1.NodeSelector'
+        description: |-
+          If the affinity requirements specified by this field are not met at
+          scheduling time, the pod will not be scheduled onto the node.
+          If the affinity requirements specified by this field cease to be met
+          at some point during pod execution (e.g. due to an update), the system
+          may or may not try to eventually evict the pod from its node.
+          +optional
+    type: object
+  v1.NodeSelector:
+    properties:
+      nodeSelectorTerms:
+        description: Required. A list of node selector terms. The terms are ORed.
+        items:
+          $ref: '#/definitions/v1.NodeSelectorTerm'
+        type: array
+    type: object
+  v1.NodeSelectorRequirement:
+    properties:
+      key:
+        description: The label key that the selector applies to.
+        type: string
+      operator:
+        description: |-
+          Represents a key's relationship to a set of values.
+          Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+        type: string
+      values:
+        description: |-
+          An array of string values. If the operator is In or NotIn,
+          the values array must be non-empty. If the operator is Exists or DoesNotExist,
+          the values array must be empty. If the operator is Gt or Lt, the values
+          array must have a single element, which will be interpreted as an integer.
+          This array is replaced during a strategic merge patch.
+          +optional
+        items:
+          type: string
+        type: array
+    type: object
+  v1.NodeSelectorTerm:
+    properties:
+      matchExpressions:
+        description: |-
+          A list of node selector requirements by node's labels.
+          +optional
+        items:
+          $ref: '#/definitions/v1.NodeSelectorRequirement'
+        type: array
+      matchFields:
+        description: |-
+          A list of node selector requirements by node's fields.
+          +optional
+        items:
+          $ref: '#/definitions/v1.NodeSelectorRequirement'
+        type: array
+    type: object
+  v1.PodAffinity:
+    properties:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        description: |-
+          The scheduler will prefer to schedule pods to nodes that satisfy
+          the affinity expressions specified by this field, but it may choose
+          a node that violates one or more of the expressions. The node that is
+          most preferred is the one with the greatest sum of weights, i.e.
+          for each node that meets all of the scheduling requirements (resource
+          request, requiredDuringScheduling affinity expressions, etc.),
+          compute a sum by iterating through the elements of this field and adding
+          "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the
+          node(s) with the highest sum are the most preferred.
+          +optional
+        items:
+          $ref: '#/definitions/v1.WeightedPodAffinityTerm'
+        type: array
+      requiredDuringSchedulingIgnoredDuringExecution:
+        description: |-
+          If the affinity requirements specified by this field are not met at
+          scheduling time, the pod will not be scheduled onto the node.
+          If the affinity requirements specified by this field cease to be met
+          at some point during pod execution (e.g. due to a pod label update), the
+          system may or may not try to eventually evict the pod from its node.
+          When there are multiple elements, the lists of nodes corresponding to each
+          podAffinityTerm are intersected, i.e. all terms must be satisfied.
+          +optional
+        items:
+          $ref: '#/definitions/v1.PodAffinityTerm'
+        type: array
+    type: object
+  v1.PodAffinityTerm:
+    properties:
+      labelSelector:
+        $ref: '#/definitions/v1.LabelSelector'
+        description: |-
+          A label query over a set of resources, in this case pods.
+          +optional
+      namespaces:
+        description: |-
+          namespaces specifies which namespaces the labelSelector applies to (matches against);
+          null or empty list means "this pod's namespace"
+          +optional
+        items:
+          type: string
+        type: array
+      topologyKey:
+        description: |-
+          This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching
+          the labelSelector in the specified namespaces, where co-located is defined as running on a node
+          whose value of the label with key topologyKey matches that of any node on which any of the
+          selected pods is running.
+          Empty topologyKey is not allowed.
+        type: string
+    type: object
+  v1.PodAntiAffinity:
+    properties:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        description: |-
+          The scheduler will prefer to schedule pods to nodes that satisfy
+          the anti-affinity expressions specified by this field, but it may choose
+          a node that violates one or more of the expressions. The node that is
+          most preferred is the one with the greatest sum of weights, i.e.
+          for each node that meets all of the scheduling requirements (resource
+          request, requiredDuringScheduling anti-affinity expressions, etc.),
+          compute a sum by iterating through the elements of this field and adding
+          "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the
+          node(s) with the highest sum are the most preferred.
+          +optional
+        items:
+          $ref: '#/definitions/v1.WeightedPodAffinityTerm'
+        type: array
+      requiredDuringSchedulingIgnoredDuringExecution:
+        description: |-
+          If the anti-affinity requirements specified by this field are not met at
+          scheduling time, the pod will not be scheduled onto the node.
+          If the anti-affinity requirements specified by this field cease to be met
+          at some point during pod execution (e.g. due to a pod label update), the
+          system may or may not try to eventually evict the pod from its node.
+          When there are multiple elements, the lists of nodes corresponding to each
+          podAffinityTerm are intersected, i.e. all terms must be satisfied.
+          +optional
+        items:
+          $ref: '#/definitions/v1.PodAffinityTerm'
+        type: array
+    type: object
+  v1.PreferredSchedulingTerm:
+    properties:
+      preference:
+        $ref: '#/definitions/v1.NodeSelectorTerm'
+        description: A node selector term, associated with the corresponding weight.
+      weight:
+        description: Weight associated with matching the corresponding nodeSelectorTerm,
+          in the range 1-100.
+        type: integer
+    type: object
+  v1.WeightedPodAffinityTerm:
+    properties:
+      podAffinityTerm:
+        $ref: '#/definitions/v1.PodAffinityTerm'
+        description: Required. A pod affinity term, associated with the corresponding
+          weight.
+      weight:
+        description: |-
+          weight associated with matching the corresponding podAffinityTerm,
+          in the range 1-100.
+        type: integer
+    type: object
+info:
+  contact: {}
+paths:
+  /config:
+    get:
+      description: Get Config
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/output.Config'
+      tags:
+      - Config
+  /gpus:
+    get:
+      description: Get GPU vendors
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/output.GPUVendors'
+      tags:
+      - GPUS
+  /namespaces:
+    get:
+      description: Get Namespaces
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+      tags:
+      - Namespaces
+  /namespaces/{namespace}/{notebook}:
+    delete:
+      description: Delete Notebook
+      parameters:
+      - description: Namespace
+        in: path
+        name: namespace
+        required: true
+        type: string
+      - description: Notebook
+        in: path
+        name: notebook
+        required: true
+        type: string
+      responses:
+        "204":
+          description: ""
+      tags:
+      - Notebooks
+    patch:
+      description: Patch Notebook
+      parameters:
+      - description: Namespace
+        in: path
+        name: namespace
+        required: true
+        type: string
+      - description: Notebook
+        in: path
+        name: notebook
+        required: true
+        type: string
+      - description: Notebook info
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/input.StartStop'
+      responses:
+        "200":
+          description: ""
+      tags:
+      - Notebooks
+  /namespaces/{namespace}/notebooks:
+    get:
+      description: Get Notebooks
+      parameters:
+      - description: Namespace
+        in: path
+        name: namespace
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/output.Notebooks'
+      tags:
+      - Notebooks
+    post:
+      consumes:
+      - application/json
+      description: Create Notebook
+      parameters:
+      - description: Namespace
+        in: path
+        name: namespace
+        required: true
+        type: string
+      - description: Notebook info
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/input.Notebook'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: ""
+      tags:
+      - Notebooks
+  /namespaces/{namespace}/notebooks/{notebook}:
+    get:
+      description: Get Notebook
+      parameters:
+      - description: Namespace
+        in: path
+        name: namespace
+        required: true
+        type: string
+      - description: Notebook
+        in: path
+        name: notebook
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/output.Notebook'
+      tags:
+      - Notebooks
+  /namespaces/{namespace}/poddefaults:
+    get:
+      description: Get pod defaults
+      parameters:
+      - description: Namespace
+        in: path
+        name: namespace
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/output.PodDefaults'
+      tags:
+      - Defaults
+  /namespaces/{namespace}/pvcs:
+    get:
+      description: Get pvcs
+      parameters:
+      - description: Namespace
+        in: path
+        name: namespace
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/output.PVCs'
+      tags:
+      - PVCs
+  /storageclasses:
+    get:
+      description: Get storage classes
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+      tags:
+      - StorageClasses
+  /storageclasses/default:
+    get:
+      description: Get default storage class
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/output.DefaultStorageClass'
+      tags:
+      - StorageClasses
+swagger: "2.0"
