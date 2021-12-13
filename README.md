@@ -10,16 +10,30 @@ of relying on Istio.
 It also has full swagger documentation for interacting with the API programmatically.
 
 
+## Install Dependencies
+
+```bash
+make install-deps
+```
+
+## Docker Build
+```bash
+docker build -t $YOUR_REPO/notebook-api .
+```
+
+## Docker Push
+```bash
+docker push $YOUR_REPO/notebook-api
+```
+
 ## Install
-
 ```bash
-make install
+helm install \
+    --set image.repository=$YOUR_REPO/notebook-api \
+    --set image.tag=latest \
+    kubego-notebooks ./deployment/notebooks
 ```
 
-## Docker
-```bash
-docker build -t notebook-api .
-```
 
 ## Running locally
 ```bash
@@ -32,6 +46,14 @@ server:
   # Server Bind address
   address: 0.0.0.0:8000
   apiPrefix: "/api"
+
+cors:
+  enabled: true
+  accessControlAllowOrigin: "*"
+  acccessControlAllowCredentials: "true"
+  accessControlAllowHeaders: "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin"
+  accessControlAllowMethods: "POST,HEAD,PATCH,OPTIONS,GET,PUT"
+
 
 # InCluster will use a service account if true
 # If false, will use local kube context
@@ -49,3 +71,9 @@ ingress:
     # "kubernetes.io/ingress.class": "nginx"
     # "nginx.ingress.kubernetes.io/proxy-body-size": "0"
 ```
+
+
+![](docs/ui.png)
+
+
+![](docs/api.png)
