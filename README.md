@@ -37,6 +37,12 @@ helm install \
 
 ## Running locally
 ```bash
+make build-frontend
+go run main.go
+```
+
+## Running locally with Docker
+```bash
 docker run -v ${HOME}/.kube:/home/.kube -p 8000:8000 notebook-api
 ```
 

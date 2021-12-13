@@ -8,7 +8,7 @@ RUN /usr/local/bin/upx -9 notebookapi
 # --- Build the frontend ---
 FROM node:12-buster-slim as frontend
 WORKDIR /src
-ADD . .
+ADD frontend frontend/
 RUN npm install -g @angular/cli
 RUN cd frontend/kubeflow-common-lib \
     && npm i \
@@ -20,7 +20,8 @@ RUN cd frontend/jupyter \
     && npm i \
     && npm link kubeflow \
     && npm run copyLibAssets && ng build --base-href / --deploy-url /static/ \
-    && cd ../../
+    && cd ../../ \
+    && cp -r frontend/jupyter/dist/frontend/ static
 
 # --- Build final container ---
 FROM gcr.io/distroless/base:3c29f81d9601750a95140e4297a06765c41ad10e
