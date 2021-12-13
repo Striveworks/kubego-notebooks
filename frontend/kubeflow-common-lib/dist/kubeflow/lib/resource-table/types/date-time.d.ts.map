@@ -1,0 +1,1 @@
+{"version":3,"file":"date-time.d.ts","sourceRoot":"","sources":["../../../../../projects/kubeflow/src/lib/resource-table/types/date-time.ts"],"names":[],"mappings":"AAEA,MAAM,WAAW,cAAc;IAC7B,KAAK,EAAE,MAAM,CAAC;CACf;AAED,qBAAa,aAAa;IACxB,KAAK,EAAE,MAAM,CAAC;IAEd,OAAO,CAAC,aAAa,CAEnB;gBAEU,MAAM,EAAE,cAAc;IAKlC,QAAQ,CAAC,GAAG,EAAE,GAAG;CAGlB"}

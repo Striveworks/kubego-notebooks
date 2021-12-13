@@ -1,0 +1,1 @@
+{"version":3,"file":"kubernetes.d.ts","sourceRoot":"","sources":["../../../../projects/kubeflow/src/lib/utils/kubernetes.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,SAAS,EAAC,MAAM,oBAAoB,CAAC;AAC7C,OAAO,EAAC,SAAS,EAAC,MAAM,2BAA2B,CAAC;AAEpD,wBAAgB,YAAY,CAAC,GAAG,EAAE,SAAS,EAAE,SAAS,EAAE,MAAM,GAAG,SAAS,CAoBzE"}

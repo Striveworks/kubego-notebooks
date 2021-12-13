@@ -1,0 +1,1 @@
+kubectl apply -f ./deployment/pod-default-crd.yaml
