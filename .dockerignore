@@ -1,2 +1,4 @@
 licensing/
 deployment/
+static/
+**/node_modules
