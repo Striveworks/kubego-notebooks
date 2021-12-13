@@ -12,6 +12,8 @@ require (
 	github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-errors/errors v1.4.1
+	github.com/hashicorp/golang-lru v0.5.1
+	github.com/hashicorp/hcl v1.0.0
 	github.com/kubeflow/kubeflow/components/admission-webhook v0.0.0-20211124152947-80edfad040a0
 	github.com/kubeflow/kubeflow/components/notebook-controller v0.0.0-20211124152947-80edfad040a0
 	github.com/spf13/viper v1.4.1-0.20190911140308-99520c81d86e
@@ -48,8 +50,6 @@ require (
 	github.com/google/gofuzz v1.0.0 // indirect
 	github.com/google/uuid v1.1.2 // indirect
 	github.com/googleapis/gnostic v0.3.1 // indirect
-	github.com/hashicorp/golang-lru v0.5.1 // indirect
-	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/imdario/mergo v0.3.7 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.11 // indirect
