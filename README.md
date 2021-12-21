@@ -1,8 +1,8 @@
-# KubeGo Notebooks
+<img width=800 src="docs/kubego.png"/>
 
-KubeGo notebooks is a Go implementation of kubeflow notebooks. 
+
+KubeGo notebooks is a Go implementation of kubeflow notebooks.
 It leverages kubeflow's [notebook controller](https://github.com/kubeflow/kubeflow/tree/master/components/notebook-controller).
-
 
 Ease-of-use is the primary goal of this project. It allows using a normal ingress controller such as Nginx to expose notebooks as native kubernetes ingresses instead
 of relying on Istio.
@@ -10,23 +10,23 @@ of relying on Istio.
 It also has full swagger documentation for interacting with the API programmatically.
 
 
-## Install Dependencies
+## Install Dependencies 📦
 
 ```bash
 make install-deps
 ```
 
-## Docker Build
+## Docker Build 🛠️
 ```bash
 docker build -t $YOUR_REPO/notebook-api .
 ```
 
-## Docker Push
+## Docker Push 🚀
 ```bash
 docker push $YOUR_REPO/notebook-api
 ```
 
-## Install
+## Install 🔌
 ```bash
 helm install \
     --set image.repository=$YOUR_REPO/notebook-api \
@@ -35,18 +35,18 @@ helm install \
 ```
 
 
-## Running locally
+## Running locally 👟
 ```bash
 make build-frontend
 go run main.go
 ```
 
-## Running locally with Docker
+## Running locally with Docker 🐳
 ```bash
 docker run -v ${HOME}/.kube:/home/.kube -p 8000:8000 notebook-api
 ```
 
-## Configuration
+## Configuration 📖
 ```yaml
 server:
   # Server Bind address
