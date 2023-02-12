@@ -43,7 +43,7 @@
     "@angular/cli": "~12.0.5",
     "@angular/compiler-cli": "~12.0.5",
     "@angular/language-service": "~12.0.5",
-    "@kubernetes/client-node": "^0.12.2",
+    "@kubernetes/client-node": "^0.18.1",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "^2.0.9",
     "@types/node": "^12.11.1",
